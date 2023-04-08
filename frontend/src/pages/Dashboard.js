@@ -8,6 +8,7 @@ import GoalItem from "../components/GoalItem";
 import Sidebar from "../components/Sidebar";
 
 import Spinner from "../components/Spinner";
+import Goals from "../components/Goals";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -53,9 +54,10 @@ function Dashboard() {
           <button className="btn">Add new Goal +</button>
         </div>
       </section>
-      <GoalForm />
+      {/* <GoalForm /> */}
       <section className="content">
-        {goals.length > 0 ? (
+        <Goals />
+        {/* {goals.length > 0 ? (
           <div className="goals">
             {goals.map((goal) => {
               return <GoalItem key={goal._id} goal={goal} />;
@@ -63,7 +65,7 @@ function Dashboard() {
           </div>
         ) : (
           <h3>You have not set any goal</h3>
-        )}
+        )} */}
       </section>
     </>
   );

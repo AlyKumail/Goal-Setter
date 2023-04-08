@@ -265,3 +265,16 @@ h3 {
     font-size: 1.5rem;
   }
 }
+
+.goals{
+  display: flex ;
+  /* border: 1px solid red; */
+  justify-content: space-between;
+  
+}
+.todo,
+.progress,
+.completed{
+  width: 32%;
+  border-right: 1px solid black ;
+}
