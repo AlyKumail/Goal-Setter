@@ -34,15 +34,39 @@ h3 {
   font-weight: 600;
   margin-bottom: 10px;
 }
-
+.app-wrap{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 210px;
+}
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  /* border: 1px solid red; */
+  
 }
-
+.sidebar{
+  height: 100vh;
+  width: 20%;
+  max-width: 210px;
+  background-color: #232323;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0;
+}
+.sidebar li{
+  text-align: center;
+}
+.userName{
+  font-size: 1.5rem;
+  line-height: 30px;
+  font-weight: 500;
+}
 .header {
   display: flex;
   justify-content: space-between;

@@ -5,6 +5,7 @@ import { getGoals, reset } from "../features/goals/goalSlice";
 
 import GoalForm from "../components/GoalForm";
 import GoalItem from "../components/GoalItem";
+import Sidebar from "../components/Sidebar";
 
 import Spinner from "../components/Spinner";
 
