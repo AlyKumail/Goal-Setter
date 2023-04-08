@@ -42,11 +42,16 @@ function Dashboard() {
   return (
     <>
       <section className="heading">
-        <h1>Welcome {user && user.name}</h1>
-        <p>
-          Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit interdum.
-        </p>
+        <div className="heading-text">
+          <h1>Welcome {user && user.name}</h1>
+          <p>
+            Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+            vulputate libero et velit interdum.
+          </p>
+        </div>
+        <div className="heading-btn">
+          <button className="btn">Add new Goal +</button>
+        </div>
       </section>
       <GoalForm />
       <section className="content">

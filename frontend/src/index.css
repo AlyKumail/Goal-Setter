@@ -113,10 +113,14 @@ h3 {
   font-weight: 500;
   margin-bottom: 50px;
   padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .heading h1{
   margin-bottom: 0rem;
 }
+
 .heading p {
   color: #828282;
   font-size: 1rem;
@@ -205,6 +209,16 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+}
+
+.heading .btn{
+  width: 180px;
+  background: #3EADEC;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 60px;
+  border: none;
+  padding: 13px 20px;
+
 }
 
 .loadingSpinnerContainer {
