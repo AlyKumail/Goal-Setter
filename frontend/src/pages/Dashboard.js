@@ -43,7 +43,10 @@ function Dashboard() {
     <>
       <section className="heading">
         <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
+        <p>
+          Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+          vulputate libero et velit interdum.
+        </p>
       </section>
       <GoalForm />
       <section className="content">

@@ -8,7 +8,7 @@ import Sidebar from "./components/Sidebar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Header from "./components/Header";
+// import Header from "./components/Header";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <div className="app-wrap">
           <Sidebar></Sidebar>
           <div className="container">
-            <Header></Header>
+            {/* <Header></Header> */}
             <Routes>
               <Route path="/" element={<Dashboard></Dashboard>}></Route>
               <Route path="/login" element={<Login></Login>}></Route>
