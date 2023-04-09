@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaWarehouse } from "react-icons/fa";
 
 import { logout, reset } from "../features/auth/authSlice";
 
@@ -22,7 +22,13 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <li className="userName">
-          {user ? `Welcome ${user.name}` : "Welcome"}
+          {user ? `Welcome, ${user.name}` : "Welcome"}
+        </li>
+        <li>
+          <button className="btn addWorkspace" onClick={onLogoutHandler}>
+            <FaWarehouse></FaWarehouse>
+            Add Workspace
+          </button>
         </li>
         <li>
           <button className="btn logout" onClick={onLogoutHandler}>
