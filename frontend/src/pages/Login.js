@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaSignInAlt } from "react-icons/fa";
 
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 
@@ -56,13 +56,13 @@ function Login() {
   }
 
   return (
-    <>
-      <section className="heading">
+    <div className="login-container">
+      <section className="heading flex flex-col align-center justify-center">
         <h1>
           <FaSignInAlt></FaSignInAlt>
           Login
         </h1>
-        <p>Login and start setting goals</p>
+        <p style={{ textAlign: "center" }}>Login and start setting goals</p>
       </section>
 
       <section className="form">
@@ -94,9 +94,17 @@ function Login() {
               Submit
             </button>
           </div>
+          <div className="form-group">
+            <span style={{ fontSize: ".85rem" }}>
+              Do not have an account ?{" "}
+              <Link to="/register" style={{ color: "royalblue" }}>
+                Register here
+              </Link>
+            </span>
+          </div>
         </form>
       </section>
-    </>
+    </div>
   );
 }
 

@@ -1,22 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import goalService from "./goalService";
+import taskService from "./taskService";
 
 const initialState = {
-  goals: [],
+  tasks: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
 };
 
-// Create goal
-export const createGoal = createAsyncThunk(
-  "goals/create",
-  async (goalData, thunkAPI) => {
+// Create task
+export const createTask = createAsyncThunk(
+  "tasks/create",
+  async (taskData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await goalService.createGoal(goalData, token);
+      return await taskService.createTask(taskData, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -30,13 +30,13 @@ export const createGoal = createAsyncThunk(
   }
 );
 
-// Get all Goals
-export const getGoals = createAsyncThunk(
-  "goals/getAll",
+// Get all Tasks
+export const getTasks = createAsyncThunk(
+  "tasks/getAll",
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await goalService.getGoals(token);
+      return await taskService.getTasks(token);
     } catch (error) {
       const message =
         (error.response &&
@@ -50,13 +50,13 @@ export const getGoals = createAsyncThunk(
   }
 );
 
-// Delete goal
-export const deleteGoal = createAsyncThunk(
-  "goals/delete",
+// Delete Task
+export const deleteTask = createAsyncThunk(
+  "tasks/delete",
   async (id, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await goalService.deleteGoal(id, token);
+      return await taskService.deleteTask(id, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -70,53 +70,53 @@ export const deleteGoal = createAsyncThunk(
   }
 );
 
-export const goalSlice = createSlice({
-  name: "goal",
+export const taskSlice = createSlice({
+  name: "task",
   initialState,
   reducers: {
     reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createGoal.pending, (state) => {
+      .addCase(createTask.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createGoal.fulfilled, (state, action) => {
+      .addCase(createTask.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.goals.push(action.payload);
+        state.tasks.push(action.payload);
       })
-      .addCase(createGoal.rejected, (state, action) => {
+      .addCase(createTask.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
       })
-      .addCase(getGoals.pending, (state) => {
+      .addCase(getTasks.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getGoals.fulfilled, (state, action) => {
+      .addCase(getTasks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        state.goals = action.payload;
+        state.tasks = action.payload;
       })
-      .addCase(getGoals.rejected, (state, action) => {
+      .addCase(getTasks.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
       })
-      .addCase(deleteGoal.pending, (state) => {
+      .addCase(deleteTask.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteGoal.fulfilled, (state, action) => {
+      .addCase(deleteTask.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        state.goals = state.goals.filter(
-          (goal) => goal._id !== action.payload.id
+        state.tasks = state.tasks.filter(
+          (task) => task._id !== action.payload.id
         );
       })
-      .addCase(deleteGoal.rejected, (state, action) => {
+      .addCase(deleteTask.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
@@ -124,12 +124,12 @@ export const goalSlice = createSlice({
   },
 });
 
-export const { reset } = goalSlice.actions;
-export default goalSlice.reducer;
+export const { reset } = taskSlice.actions;
+export default taskSlice.reducer;
 
 // export const setGoal = createAsyncThunk("goal/set", async (user, thunkAPI) => {
 //   try {
-//     return await goalService.setGoal(goal);
+//     return await taskService.setGoal(goal);
 //   } catch (error) {
 //     const message =
 //       (error.response && error.response.data && error.response.data.message) ||

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createGoal } from "../features/goals/goalSlice";
+import { createTask } from "../features/tasks/taskSlice";
 
 const GoalForm = () => {
   const [text, setText] = useState("");
@@ -11,7 +11,7 @@ const GoalForm = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(createGoal({ text }));
+    dispatch(createTask({ text }));
     setText("");
   };
 

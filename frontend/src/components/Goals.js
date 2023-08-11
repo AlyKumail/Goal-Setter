@@ -5,6 +5,7 @@ const Goals = () => {
     <div className="goals">
       <div className="todo">
         <span className="header-tag">Todo</span>
+
         <div className="goals-col">
           <div className="goal">
             <span className="goal-tag">Design</span>

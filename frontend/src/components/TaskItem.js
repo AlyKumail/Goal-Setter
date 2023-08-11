@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteGoal } from "../features/goals/goalSlice";
+import { deleteTask } from "../features/tasks/taskSlice";
 
-const GoalItem = ({ goal }) => {
+const TaskItem = ({ goal }) => {
   const dispatch = useDispatch();
   return (
     <div className="goal">
@@ -10,7 +10,7 @@ const GoalItem = ({ goal }) => {
       <h2>{goal.text}</h2>
       <button
         onClick={() => {
-          dispatch(deleteGoal(goal._id));
+          dispatch(deleteTask(goal._id));
         }}
         className="close"
       >
@@ -20,4 +20,4 @@ const GoalItem = ({ goal }) => {
   );
 };
 
-export default GoalItem;
+export default TaskItem;

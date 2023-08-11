@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
 
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
 
@@ -65,13 +65,13 @@ function Register() {
   }
 
   return (
-    <>
-      <section className="heading">
+    <div className="login-container">
+      <section className="heading flex flex-col align-center justify-center">
         <h1>
           <FaUser></FaUser>
           Register
         </h1>
-        <p>Please create an account</p>
+        <p style={{ textAlign: "center" }}>Please create an account</p>
       </section>
 
       <section className="form">
@@ -125,9 +125,17 @@ function Register() {
               Submit
             </button>
           </div>
+          <div className="form-group">
+            <span style={{ fontSize: ".85rem" }}>
+              Already have an account ?{" "}
+              <Link to="/login" style={{ color: "royalblue" }}>
+                Login here
+              </Link>
+            </span>
+          </div>
         </form>
       </section>
-    </>
+    </div>
   );
 }
 
